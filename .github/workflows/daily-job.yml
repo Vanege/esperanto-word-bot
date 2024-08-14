@@ -1,8 +1,9 @@
 name: Daily Esperanto Word Bot
 
 on:
-  schedule:
-    - cron: '6,12,18,24,30,36,42,48,54,0 * * * *'
+  #schedule:
+  #  - cron: '6,12,18,24,30,36,42,48,54,0 * * * *'
+  ## - cron: '1 18 * * *'  # This runs at 18:01 UTC, which is 20:01 Amsterdam time
   workflow_dispatch:
 
 jobs:
