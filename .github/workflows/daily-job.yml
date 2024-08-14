@@ -2,7 +2,7 @@ name: Daily Esperanto Word Bot
 
 on:
   schedule:
-    - cron: '1 18 * * *'  # This runs at 18:01 UTC, which is 20:01 Amsterdam time
+    - cron: '* * * * *'  # This runs at 18:01 UTC, which is 20:01 Amsterdam time
 
 jobs:
   send-words:
