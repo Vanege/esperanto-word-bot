@@ -19,8 +19,8 @@ jobs:
       run: npm ci
     - name: Run bot script
       env:
-        BOT_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-        CHAT_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
       run: npm start-discord
   # telegram-send-words:
   #   runs-on: ubuntu-latest
