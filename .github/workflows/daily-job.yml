@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  send-words:
+  discord-send-words:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -19,6 +19,21 @@ jobs:
       run: npm ci
     - name: Run bot script
       env:
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
-      run: npm start
+        BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: npm start-discord
+  # telegram-send-words:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Use Node.js
+  #     uses: actions/setup-node@v2
+  #     with:
+  #       node-version: '20'
+  #   - name: Install dependencies
+  #     run: npm ci
+  #   - name: Run bot script
+  #     env:
+  #       BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  #       CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  #     run: npm start-telegram

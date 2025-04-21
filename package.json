@@ -1,10 +1,11 @@
 {
   "name": "esperanto-word-bot",
   "version": "1.0.0",
-  "description": "Telegram bot that sends random Esperanto words daily",
-  "main": "bot.js",
+  "description": "Bot that sends random Esperanto words daily",
+  "main": "discord-bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start-discord": "node discord-bot.js",
+    "start-telegram": "node telegram-bot.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
