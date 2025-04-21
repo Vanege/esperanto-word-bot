@@ -19,7 +19,7 @@ async function fetchWordList() {
     console.log('Fetching Esperanto word list...');
     const response = await fetch(WORD_LIST_URL);
     const data = await response.text();
-    const allWords = data.split('\n').filter(word => word.trim());
+    const allWords = data.split('\r\n').filter(word => word.trim());
     // Only use the first 5000 words
     wordList = allWords.slice(0, 5000);
     console.log(`Successfully loaded ${wordList.length} Esperanto words (limited to first 5000)!`);
@@ -60,13 +60,16 @@ client.once(Events.ClientReady, async () => {
   // Load the word list when the bot starts
   await fetchWordList();
 
-  // Send a random word to the specified channel
+  // Send random words to the specified channel
   if (process.env.DISCORD_CHANNEL_ID) {
     try {
       const channel = await client.channels.fetch(process.env.DISCORD_CHANNEL_ID);
       if (channel) {
         const [word1, word2] = getTwoRandomWords();
-        await channel.send(`La vortoj de la tago estas **${word1}** kaj **${word2}**. Provu fari frazon per ili. Vi rajtas konjugacii kaj aldoni -j kaj -n`);
+
+        // Format the message with no line breaks
+        const message = `La vortoj de la tago estas **${word1}** kaj **${word2}**. Provu fari frazon per ili. Vi rajtas konjugacii kaj aldoni -j kaj -n.\n<https://vortaro.net/#${word1}_kd>\n<https://vortaro.net/#${word2}_kd>`;
+        await channel.send(message);
         console.log(`Sent words "${word1}" and "${word2}" to channel #${channel.name}`);
       }
     } catch (error) {
