@@ -1,8 +1,8 @@
 name: Daily Esperanto Word Bot
 
 on:
-  #schedule:
-  #  - cron: '6,12,18,24,30,36,42,48,54,0 * * * *'
+  schedule:
+    - cron: '6,12,18,24,30,36,42,48,54,0 * * * *'
   ## - cron: '1 18 * * *'  # This runs at 18:01 UTC, which is 20:01 Amsterdam time
   workflow_dispatch:
 
@@ -19,8 +19,8 @@ jobs:
       run: npm ci
     - name: Run bot script
       env:
-        BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        BOT_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        CHAT_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
       run: npm start-discord
   # telegram-send-words:
   #   runs-on: ubuntu-latest
