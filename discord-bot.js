@@ -68,7 +68,7 @@ client.once(Events.ClientReady, async () => {
         const [word1, word2] = getTwoRandomWords();
 
         // Format the message with no line breaks
-        const message = `La vortoj de la tago estas **${word1}** kaj **${word2}**. Provu fari frazon per ili. Vi rajtas konjugacii kaj aldoni -j kaj -n.\n<https://vortaro.net/#${word1}_kd>\n<https://vortaro.net/#${word2}_kd>`;
+        const message = `La vortoj de la tago estas **${word1}** kaj **${word2}**. Provu fari frazon per ili. Vi rajtas konjugacii kaj aldoni -j kaj -n.\n<https://reta-vortaro.de/revo/dlg/index-2m.html?q=${word1}>\n<https://reta-vortaro.de/revo/dlg/index-2m.html?q=${word2}>`;
         await channel.send(message);
         console.log(`Sent words "${word1}" and "${word2}" to channel #${channel.name}`);
       }
