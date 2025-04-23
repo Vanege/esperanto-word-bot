@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  discord-send-words:
+  discord:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,11 +17,16 @@ jobs:
         node-version: '20'
     - name: Install dependencies
       run: npm ci
-    - name: Run bot script
+    - name: Run start-discord-vorto-de-la-tago
       env:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-        DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
-      run: npm run start-discord
+        DISCORD_VORTO_DE_LA_TAGO_CHANNEL_ID: ${{ secrets.DISCORD_VORTO_DE_LA_TAGO_CHANNEL_ID }}
+      run: npm run start-discord-vorto-de-la-tago
+    - name: Run start-discord-demando-de-la-tago
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_DEMANDO_DE_LA_TAGO_CHANNEL_ID: ${{ secrets.DISCORD_DEMANDO_DE_LA_TAGO_CHANNEL_ID }}
+      run: npm run start-discord-demando-de-la-tago
   # telegram-send-words:
   #   runs-on: ubuntu-latest
   #   steps:
