@@ -27,6 +27,11 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         DISCORD_DEMANDO_DE_LA_TAGO_CHANNEL_ID: ${{ secrets.DISCORD_DEMANDO_DE_LA_TAGO_CHANNEL_ID }}
       run: npm run start-discord-demando-de-la-tago
+    - name: Run start-discord-foto-de-la-semajno
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_FOTO_DE_LA_SEMAJNO_CHANNEL_ID: ${{ secrets.DISCORD_FOTO_DE_LA_SEMAJNO_CHANNEL_ID }}
+      run: npm run start-discord-foto-de-la-semajno
   # telegram-send-words:
   #   runs-on: ubuntu-latest
   #   steps:

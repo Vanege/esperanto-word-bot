@@ -6,6 +6,7 @@
   "scripts": {
     "start-discord-vorto-de-la-tago": "node discord-vorto-de-la-tago.js",
     "start-discord-demando-de-la-tago": "node discord-demando-de-la-tago.js",
+    "start-discord-foto-de-la-semajno": "node discord-foto-de-la-semajno.js",
     "start-telegram": "node telegram-bot.js"
   },
   "dependencies": {
